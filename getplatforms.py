@@ -64,7 +64,7 @@ for line in data.split("\n"):
         title = line.split(" ")[1].split("_ig_vals")[0].split("_snb_vals")[0]
         if len(output):
             output += "\n\n"
-        t_append  = " id-platform-id's:\n\n" if "ig_vals" in title.lower() else " snb-platform-id's:\n\n"
+        t_append  = " ig-platform-id's:\n\n" if "ig_vals" in line.lower() else " snb-platform-id's:\n\n"
         output += title + t_append
         primed = True
         continue
