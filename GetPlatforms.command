@@ -67,6 +67,7 @@ for line in data.split("\n"):
             output += "\n\n"
         t_append  = " ig-platform-id's:\n\n" if "ig_vals" in line.lower() else " snb-platform-id's:\n\n"
         output += title + t_append
+        output += "       Hex        Hex-Swap      Base64\n\n"
         primed = True
         continue
     if not primed:
@@ -83,10 +84,12 @@ for line in data.split("\n"):
         ig_swap = ig_swap + i[2:]
     ig = "0x" + ig
     desc = line.split("},")[1]
-    output += "   " + ig + desc + "\n"
-    # Get the data in hex-swapped, and base64 data
-    output += "   - Hex Swapped: {}    - Base64:  {}\n".format(ig_swap, base64.b64encode(binascii.unhexlify(ig_swap.encode("utf-8"))).decode("utf-8"))
-
+    output += "   {}  -  {}  -  {}{}\n".format(
+        ig,
+        ig_swap,
+        base64.b64encode(binascii.unhexlify(ig_swap.encode("utf-8"))).decode("utf-8"),
+        desc
+    )
     
 if not len(output):
     # Nothing returned
