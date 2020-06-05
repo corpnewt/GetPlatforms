@@ -12,7 +12,7 @@ else:
     from urllib2 import urlopen
     
 # Set default vars
-gma_url = "https://sourceforge.net/p/cloverefiboot/code/HEAD/tree/rEFIt_UEFI/Platform/gma.c?format=raw"
+gma_url = "https://raw.githubusercontent.com/CloverHackyColor/CloverBootloader/master/rEFIt_UEFI/Platform/gma.cpp"
 
 def open_url(url):
     # Wrap up the try/except block so we don't have to do this for each function
